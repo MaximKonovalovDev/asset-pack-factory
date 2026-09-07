@@ -22,4 +22,7 @@
 - After auth: wire as aggregator stdio remote, cook with zero clicks.
 - deucebucket/colab-runtime-mcp: same family + long-job keepalive. Backup pick.
 - Token in real-cook.ipynb. Private repo only. Rotate token if repo ever goes public.
+- Model ids: shape+paint from 'tencent/Hunyuan3D-2' (lowercase full). 2mini id is wrong path.
+- Colab env war: pip resolve hangs via MCP (500s). Use background installs + poll. Kernel env (/usr/local) != run_command python — install with sys.executable -m pip. Stale kernels hold old imports — fresh session wins.
+- Stuck claims: dead workers leave claimed jobs. POST /api/batch-factory/requeue flips all non-done back to queued.
 - No-popups wire: MCP SDK hides child windows only in Electron. Patched node_modules SDK esm+cjs stdio.js windowsHide:true (npm reinstall wipes it, re-apply). Services spawn headless flags 8+512+134217728 so children inherit no window.
