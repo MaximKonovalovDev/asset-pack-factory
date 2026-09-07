@@ -1,0 +1,26 @@
+{
+ "galea": {
+  "ok": true,
+  "batchId": "3988fa2a-dec3-4cfe-a488-1535032100c9",
+  "jobId": "12a4a838-d421-4001-ad3c-56c098810162",
+  "model": "hunyuan3d-kaggle",
+  "status": "queued",
+  "stagedBase": "C:\\Users\\me\\AppData\\Local\\Temp\\forge-generations\\3988fa2a-dec3-4cfe-a488-1535032100c9"
+ },
+ "scutum": {
+  "ok": true,
+  "batchId": "40e760d5-1236-44ff-821e-585519628fe9",
+  "jobId": "1839be78-e9f8-4f2c-87b5-91d69c1b524f",
+  "model": "hunyuan3d-kaggle",
+  "status": "queued",
+  "stagedBase": "C:\\Users\\me\\AppData\\Local\\Temp\\forge-generations\\40e760d5-1236-44ff-821e-585519628fe9"
+ },
+ "gladius": {
+  "ok": true,
+  "batchId": "764c92f5-1486-4794-acf0-c90539d3ca34",
+  "jobId": "fd8950ab-3bf9-4bcb-8275-c2ded317e125",
+  "model": "hunyuan3d-kaggle",
+  "status": "queued",
+  "stagedBase": "C:\\Users\\me\\AppData\\Local\\Temp\\forge-generations\\764c92f5-1486-4794-acf0-c90539d3ca34"
+ }
+}
