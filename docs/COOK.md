@@ -1,0 +1,18 @@
+# COOK BOOK — auto 3D cook, zero clicks. Future AI read this first.
+
+## Pieces
+- Queue: POST /v1/assets/generations (gateway :20128, token). Jobs sit in memory.
+- Claim: POST /api/batch-factory/claim {workerId, limit 1-8}. Flips queued->claimed.
+- Deliver: POST /api/batch-factory/deliver {batchId, jobId, fileBase64}. Cap 32MB. Writes staged.
+- Complete: POST /api/batch-factory/complete {batchId, jobId}. Gates via acquire-first. Red blocks.
+- Cook: work/real-cook.ipynb (private, holds token). Claims 2, renders Hunyuan (TripoSR fallback), delivers, completes, idle-out 10 min.
+- Build it: python work/mkcook.py with FORGE_COOK_TUNNEL=live public url + FORGE_GATEWAY_TOKEN in env. Never print either.
+- Tunnel: POST /api/tunnel/public starts cloudflared. URL dies on gateway restart -> rebuild notebook.
+- Restart wipes queue (memory). Re-fire via apf/router.py generate().
+
+## Lessons (blood)
+- Farm templates were STUBS (idle loop, no render). Never trust, read code.
+- :20129 aggregator died once; spawn detached python 8+512, probe /health.
+- Vault has 70+ unit-test junk accounts. Do not touch. Kaggle key = kaggle-main.
+- Kaggle MCP: quota/save calls refuse. Kernels push needs key server-side (door 2, open).
+- Token in real-cook.ipynb. Private repo only. Rotate token if repo ever goes public.
