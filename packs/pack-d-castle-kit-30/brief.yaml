@@ -1,0 +1,15 @@
+id: pack-d-castle-kit-30
+title: Castle Kit 30
+seed: 11
+style:
+  palette: ["#9a9a9a", "#6e6e6e", "#5a4a3a", "#3a3a3a", "#2a2a35", "#e8e0d0"]
+  poly: [800, 2500]
+  texel: 1024
+grid: { snap: 2.0, pivot: base_center }
+pieces: []
+gen: { primary: trellis, hero: hunyuan, cost_usd: 2.12 }
+exports: [flax, unity, unreal, godot, secondlife]
+markets: [fab, unity, sl-market, itch]
+pricing: { fab: 24.99, unity: 24.99, itch: 19.99, sl: 299 }
+ai_disclosure: "Made with AI gen + human clean, retopo, PBR, LODs."
+note: "30 parts v1: walls, corners, towers, gate, stairs, floors, roofs, trims. See docs/CASTLE.md."
