@@ -10,6 +10,12 @@
       "enabled": true,
       "headers": { "x-gdr-cli-token": "{env:FORGE_GATEWAY_TOKEN}" },
       "timeout": 120000
+    },
+    "flax-live": {
+      "type": "local",
+      "command": ["node", "C:/forge/sidecars/flax-live-mcp/server.mjs"],
+      "enabled": false,
+      "timeout": 30000
     }
   },
   "agent": {
