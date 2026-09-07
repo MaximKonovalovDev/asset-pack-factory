@@ -1,0 +1,80 @@
+{
+ "grid_m": 4,
+ "door_m": 2,
+ "rooms": [
+  {
+   "id": "gate",
+   "at": [
+    0,
+    0
+   ],
+   "parts": [
+    "wall_gated",
+    "wall_pillar x2"
+   ]
+  },
+  {
+   "id": "hall",
+   "at": [
+    0,
+    1
+   ],
+   "parts": [
+    "wall_arched x4",
+    "pillar x4",
+    "floor_dirt_large"
+   ]
+  },
+  {
+   "id": "towerL",
+   "at": [
+    -1,
+    1
+   ],
+   "parts": [
+    "wall_corner_gated",
+    "stairs"
+   ]
+  },
+  {
+   "id": "towerR",
+   "at": [
+    1,
+    1
+   ],
+   "parts": [
+    "wall_corner_gated",
+    "stairs"
+   ]
+  },
+  {
+   "id": "walk",
+   "at": [
+    0,
+    2
+   ],
+   "parts": [
+    "wall x4",
+    "wall_doorway"
+   ]
+  }
+ ],
+ "links": [
+  [
+   "gate",
+   "hall"
+  ],
+  [
+   "hall",
+   "towerL"
+  ],
+  [
+   "hall",
+   "towerR"
+  ],
+  [
+   "hall",
+   "walk"
+  ]
+ ]
+}
