@@ -22,3 +22,4 @@
 - After auth: wire as aggregator stdio remote, cook with zero clicks.
 - deucebucket/colab-runtime-mcp: same family + long-job keepalive. Backup pick.
 - Token in real-cook.ipynb. Private repo only. Rotate token if repo ever goes public.
+- No-popups wire: MCP SDK hides child windows only in Electron. Patched node_modules SDK esm+cjs stdio.js windowsHide:true (npm reinstall wipes it, re-apply). Services spawn headless flags 8+512+134217728 so children inherit no window.
