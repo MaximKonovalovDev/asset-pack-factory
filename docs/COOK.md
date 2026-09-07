@@ -15,4 +15,10 @@
 - :20129 aggregator died once; spawn detached python 8+512, probe /health.
 - Vault has 70+ unit-test junk accounts. Do not touch. Kaggle key = kaggle-main.
 - Kaggle MCP: quota/save calls refuse. Kernels push needs key server-side (door 2, open).
+## Colab MCP truth (researched 2026-09-08)
+- Official googlecolab/colab-mcp: browser-tab driving only. 1 tool visible. GPU = manual click. Dead end for auto.
+- anluin/colab-mcp (in C:/tmp-acm): browserless runtimes, Windows OK. Needs ONE Google OAuth (cached forever). Tools: colab_health, start T4 session, run commands, stop. Serve is non-interactive.
+- Machine ready: uv 0.11.32 + env built. Doctor says: auth missing. Human runs `uv run --directory C:/tmp-acm colab-mcp auth` once, then AI serves forever.
+- After auth: wire as aggregator stdio remote, cook with zero clicks.
+- deucebucket/colab-runtime-mcp: same family + long-job keepalive. Backup pick.
 - Token in real-cook.ipynb. Private repo only. Rotate token if repo ever goes public.
