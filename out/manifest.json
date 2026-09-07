@@ -1,0 +1,181 @@
+﻿[
+    {
+        "id":  "pack-id",
+        "title":  "Pack title",
+        "blurb":  "Short blurb",
+        "tags":  [
+                     "prop"
+                 ],
+        "upload":  "Fab portal web upload of pack.zip",
+        "fee":  "12%",
+        "files":  [
+                      "fab-listing.txt",
+                      "manifest.json",
+                      "pack.zip",
+                      "thumb.png"
+                  ],
+        "aiTag":  "Fab portal AI-generated checkbox",
+        "site":  "fab",
+        "price":  "$19.99",
+        "keep":  "88%"
+    },
+    {
+        "id":  "pack-id",
+        "title":  "Pack title",
+        "blurb":  "Short blurb",
+        "tags":  [
+                     "prop"
+                 ],
+        "upload":  "Unity Publisher portal upload of pack.unitypackage",
+        "fee":  "30%",
+        "files":  [
+                      "unity-listing.txt",
+                      "manifest.json",
+                      "pack.unitypackage",
+                      "thumb.png"
+                  ],
+        "aiTag":  "Publisher portal AI declaration",
+        "site":  "unity",
+        "price":  "$24.99, floor $4.99",
+        "keep":  "70%"
+    },
+    {
+        "id":  "pack-id",
+        "title":  "Pack title",
+        "blurb":  "Short blurb",
+        "tags":  [
+                     "prop"
+                 ],
+        "upload":  "marketplace.secondlife.com web upload",
+        "fee":  "10%",
+        "files":  [
+                      "sl-market-listing.txt",
+                      "manifest.json",
+                      "pack.zip",
+                      "thumb.png"
+                  ],
+        "aiTag":  "Listing text tag [AI-assisted]",
+        "site":  "sl-market",
+        "price":  "L$990",
+        "keep":  "90%"
+    },
+    {
+        "id":  "pack-id",
+        "title":  "Pack title",
+        "blurb":  "Short blurb",
+        "tags":  [
+                     "prop"
+                 ],
+        "upload":  "Creator Dashboard upload of pack.rbxm",
+        "fee":  "30% plus 750 Robux upload fee",
+        "files":  [
+                      "roblox-listing.txt",
+                      "manifest.json",
+                      "pack.rbxm",
+                      "thumb.png"
+                  ],
+        "aiTag":  "Creator Hub AI use answer",
+        "site":  "roblox",
+        "price":  "150 Robux, floor near 50",
+        "keep":  "70%"
+    },
+    {
+        "id":  "pack-id",
+        "title":  "Pack title",
+        "blurb":  "Short blurb",
+        "tags":  [
+                     "prop"
+                 ],
+        "upload":  "butler push ./out user/game:win-64 --userversion 1.0.0",
+        "fee":  "10% default, you set 0 to 100%",
+        "files":  [
+                      "itch-listing.txt",
+                      "manifest.json",
+                      "pack.zip"
+                  ],
+        "aiTag":  "Edit page tag ai-generated",
+        "site":  "itch",
+        "price":  "$9.99, can be $0",
+        "keep":  "90% at default"
+    },
+    {
+        "id":  "pack-id",
+        "title":  "Pack title",
+        "blurb":  "Short blurb",
+        "tags":  [
+                     "prop"
+                 ],
+        "upload":  "Gated post with vault.zip attached",
+        "fee":  "Patreon 8% plus 2.9% plus 30c; Ko-fi 0% plus processing",
+        "files":  [
+                      "patreon-post.txt",
+                      "kofi-post.txt",
+                      "manifest.json",
+                      "vault.zip"
+                  ],
+        "aiTag":  "Post tag ai-assisted",
+        "site":  "vault",
+        "price":  "$5 tier, $6 shop",
+        "keep":  "about 89% on Patreon, near 97% on Ko-fi"
+    },
+    {
+        "id":  "pack-id",
+        "title":  "Pack title",
+        "blurb":  "Short blurb",
+        "tags":  [
+                     "prop"
+                 ],
+        "upload":  "CGTrader and Etsy web upload of pack.zip",
+        "fee":  "CGTrader 15 to 40%; Etsy 6.5% plus 20c plus 3% plus 25c",
+        "files":  [
+                      "cgtrader-listing.txt",
+                      "etsy-listing.txt",
+                      "manifest.json",
+                      "pack.zip",
+                      "thumb.png"
+                  ],
+        "aiTag":  "CGTrader AI flag; Etsy designed-with-AI note",
+        "site":  "stock",
+        "price":  "CGTrader $14.99, Etsy $12.99",
+        "keep":  "CGTrader 60 to 85% by level; Etsy about 90% less fees"
+    },
+    {
+        "id":  "pack-id",
+        "title":  "Pack title",
+        "blurb":  "Short blurb",
+        "tags":  [
+                     "prop"
+                 ],
+        "upload":  "Minecraft Partner portal submit of pack.mcpack",
+        "fee":  "about 50%",
+        "files":  [
+                      "minecraft-listing.txt",
+                      "manifest.json",
+                      "pack.mcpack",
+                      "thumb.png"
+                  ],
+        "aiTag":  "Partner submit AI use note",
+        "site":  "minecraft",
+        "price":  "490 Minecoins",
+        "keep":  "about 50%"
+    },
+    {
+        "id":  "pack-id",
+        "title":  "Pack title",
+        "blurb":  "Short blurb",
+        "tags":  [
+                     "prop"
+                 ],
+        "upload":  "UEFN editor Publish to Fortnite",
+        "fee":  "40% pool to creators by play; asset sales same as Fab 12%",
+        "files":  [
+                      "uefn-listing.txt",
+                      "manifest.json",
+                      "island.zip"
+                  ],
+        "aiTag":  "UEFN publish Generative AI disclosure",
+        "site":  "uefn",
+        "price":  "Free island plus engagement pay",
+        "keep":  "share of pool, not per sale"
+    }
+]

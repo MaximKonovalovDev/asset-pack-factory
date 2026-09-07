@@ -1,0 +1,28 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "orchestrator",
+  "instructions": ["AGENTS.md"],
+  "tool_output": { "max_lines": 600, "max_bytes": 32768 },
+  "mcp": {
+    "forge-gateway": {
+      "type": "remote",
+      "url": "http://127.0.0.1:20128/mcp",
+      "enabled": true,
+      "headers": { "x-gdr-cli-token": "{env:FORGE_GATEWAY_TOKEN}" },
+      "timeout": 120000
+    }
+  },
+  "agent": {
+    "orchestrator": { "mode": "primary", "variant": "high" },
+    "researcher": { "mode": "subagent", "variant": "high" },
+    "maker-3d": { "mode": "subagent", "variant": "high" },
+    "maker-sfx": { "mode": "subagent", "variant": "high" },
+    "maker-vfx": { "mode": "subagent", "variant": "high" },
+    "engine-shipper": { "mode": "subagent", "variant": "high" },
+    "site-shipper": { "mode": "subagent", "variant": "high" },
+    "style-qa": { "mode": "subagent", "variant": "high" },
+    "explorer": { "mode": "subagent", "variant": "high" },
+    "librarian": { "mode": "subagent", "variant": "high" }
+  },
+  "plugin": ["./.opencode/plugin/gates.mjs"]
+}

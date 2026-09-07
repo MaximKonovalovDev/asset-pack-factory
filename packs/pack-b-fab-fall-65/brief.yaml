@@ -1,0 +1,15 @@
+id: pack-b-fab-fall-65
+title: Fall Props 65
+seed: 7
+style:
+  palette: ["#c96a2b", "#8a4b2a", "#e0a458", "#5a6e3a", "#3a3a3a", "#f5e6c8"]
+  poly: [100, 1500]
+  texel: 1024
+grid: { snap: 1.0, pivot: base_center }
+pieces: []
+gen: { primary: trellis, hero: hunyuan, cost_usd: 2.12 }
+exports: [unity, unreal, godot]
+markets: [fab, unity, itch]
+pricing: { fab: 15.99, unity: 15.99, itch: 9.99 }
+ai_disclosure: "Made with AI gen + human clean, retopo, PBR, LODs."
+note: "Fill pieces 65 max. Pumpkins, leaves, hay, wood, candles, fence, porch, pots, bare trees."

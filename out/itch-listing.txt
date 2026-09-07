@@ -1,0 +1,8 @@
+﻿Title: Pack title
+Price: $9.99, can be $0
+Fee: 10% default, you set 0 to 100%
+Keep: 90% at default
+AI tag: Edit page tag ai-generated
+Files: itch-listing.txt, manifest.json, pack.zip
+Upload: butler push ./out user/game:win-64 --userversion 1.0.0
+Blurb: Short blurb

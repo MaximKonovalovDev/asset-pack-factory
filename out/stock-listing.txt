@@ -1,0 +1,8 @@
+﻿Title: Pack title
+Price: CGTrader $14.99, Etsy $12.99
+Fee: CGTrader 15 to 40%; Etsy 6.5% plus 20c plus 3% plus 25c
+Keep: CGTrader 60 to 85% by level; Etsy about 90% less fees
+AI tag: CGTrader AI flag; Etsy designed-with-AI note
+Files: cgtrader-listing.txt, etsy-listing.txt, manifest.json, pack.zip, thumb.png
+Upload: CGTrader and Etsy web upload of pack.zip
+Blurb: Short blurb

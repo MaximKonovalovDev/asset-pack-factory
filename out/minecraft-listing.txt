@@ -1,0 +1,8 @@
+﻿Title: Pack title
+Price: 490 Minecoins
+Fee: about 50%
+Keep: about 50%
+AI tag: Partner submit AI use note
+Files: minecraft-listing.txt, manifest.json, pack.mcpack, thumb.png
+Upload: Minecraft Partner portal submit of pack.mcpack
+Blurb: Short blurb

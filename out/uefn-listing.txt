@@ -1,0 +1,8 @@
+﻿Title: Pack title
+Price: Free island plus engagement pay
+Fee: 40% pool to creators by play; asset sales same as Fab 12%
+Keep: share of pool, not per sale
+AI tag: UEFN publish Generative AI disclosure
+Files: uefn-listing.txt, manifest.json, island.zip
+Upload: UEFN editor Publish to Fortnite
+Blurb: Short blurb

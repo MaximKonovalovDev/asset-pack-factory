@@ -1,0 +1,8 @@
+﻿Title: Pack title
+Price: 150 Robux, floor near 50
+Fee: 30% plus 750 Robux upload fee
+Keep: 70%
+AI tag: Creator Hub AI use answer
+Files: roblox-listing.txt, manifest.json, pack.rbxm, thumb.png
+Upload: Creator Dashboard upload of pack.rbxm
+Blurb: Short blurb

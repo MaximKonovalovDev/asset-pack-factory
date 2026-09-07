@@ -1,0 +1,8 @@
+﻿Title: Pack title
+Price: $24.99, floor $4.99
+Fee: 30%
+Keep: 70%
+AI tag: Publisher portal AI declaration
+Files: unity-listing.txt, manifest.json, pack.unitypackage, thumb.png
+Upload: Unity Publisher portal upload of pack.unitypackage
+Blurb: Short blurb

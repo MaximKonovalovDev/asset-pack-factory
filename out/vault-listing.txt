@@ -1,0 +1,8 @@
+﻿Title: Pack title
+Price: $5 tier, $6 shop
+Fee: Patreon 8% plus 2.9% plus 30c; Ko-fi 0% plus processing
+Keep: about 89% on Patreon, near 97% on Ko-fi
+AI tag: Post tag ai-assisted
+Files: patreon-post.txt, kofi-post.txt, manifest.json, vault.zip
+Upload: Gated post with vault.zip attached
+Blurb: Short blurb

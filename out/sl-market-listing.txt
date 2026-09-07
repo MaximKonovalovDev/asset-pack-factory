@@ -1,0 +1,8 @@
+﻿Title: Pack title
+Price: L$990
+Fee: 10%
+Keep: 90%
+AI tag: Listing text tag [AI-assisted]
+Files: sl-market-listing.txt, manifest.json, pack.zip, thumb.png
+Upload: marketplace.secondlife.com web upload
+Blurb: Short blurb

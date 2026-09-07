@@ -1,0 +1,19 @@
+id: pack-a-sl-fall-5
+title: Cozy Fall Start
+seed: 42
+style:
+  palette: ["#c96a2b", "#8a4b2a", "#e0a458", "#5a6e3a", "#3a3a3a", "#f5e6c8"]
+  poly: [800, 2500]
+  texel: 512
+grid: { snap: 1.0, pivot: base_center }
+pieces:
+  - { id: pumpkin1, cat: prop, prompt: "small round pumpkin, stem" }
+  - { id: pumpkin2, cat: prop, prompt: "tall pumpkin, ribs" }
+  - { id: pumpkin3, cat: prop, prompt: "flat pumpkin, spot" }
+  - { id: wreath, cat: decor, prompt: "autumn leaf wreath, round" }
+  - { id: sign, cat: decor, prompt: "wood sign Hello Fall, plank" }
+gen: { primary: trellis, hero: hunyuan, cost_usd: 2.12 }
+exports: [secondlife, unity, godot]
+markets: [sl-market, fab, itch]
+pricing: { sl: 199, fab: 9.99, itch: 5.99 }
+ai_disclosure: "Made with AI gen + human clean, retopo, PBR, LODs."

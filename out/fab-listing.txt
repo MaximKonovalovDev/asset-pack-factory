@@ -1,0 +1,8 @@
+﻿Title: Pack title
+Price: $19.99
+Fee: 12%
+Keep: 88%
+AI tag: Fab portal AI-generated checkbox
+Files: fab-listing.txt, manifest.json, pack.zip, thumb.png
+Upload: Fab portal web upload of pack.zip
+Blurb: Short blurb
