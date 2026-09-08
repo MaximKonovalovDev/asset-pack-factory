@@ -1,0 +1,50 @@
+{
+ "pumpkin3": {
+  "ok": true,
+  "batchId": "cc586d27-1baf-4b57-aff4-87730ad013ad",
+  "jobId": "b78c62a3-f676-455f-9352-f718bc346e4a",
+  "model": "hunyuan3d-kaggle",
+  "status": "queued",
+  "stagedBase": "C:\\Users\\me\\AppData\\Local\\Temp\\forge-generations\\cc586d27-1baf-4b57-aff4-87730ad013ad"
+ },
+ "wreath": {
+  "ok": true,
+  "batchId": "782010ba-211b-466d-b69b-e4bd23ca6022",
+  "jobId": "6d27fb98-60b8-480c-a294-e799e805f9d4",
+  "model": "hunyuan3d-kaggle",
+  "status": "queued",
+  "stagedBase": "C:\\Users\\me\\AppData\\Local\\Temp\\forge-generations\\782010ba-211b-466d-b69b-e4bd23ca6022"
+ },
+ "sign": {
+  "ok": true,
+  "batchId": "7c99d144-370e-41b6-bbdd-a01fc5126de7",
+  "jobId": "034a9140-19e8-444b-a9fa-dfa06076346c",
+  "model": "hunyuan3d-kaggle",
+  "status": "queued",
+  "stagedBase": "C:\\Users\\me\\AppData\\Local\\Temp\\forge-generations\\7c99d144-370e-41b6-bbdd-a01fc5126de7"
+ },
+ "galea": {
+  "ok": true,
+  "batchId": "820e39cc-eeed-45f4-9246-298fcedabafb",
+  "jobId": "91a430dd-9007-4343-b714-ca9eff316ea1",
+  "model": "hunyuan3d-kaggle",
+  "status": "queued",
+  "stagedBase": "C:\\Users\\me\\AppData\\Local\\Temp\\forge-generations\\820e39cc-eeed-45f4-9246-298fcedabafb"
+ },
+ "scutum": {
+  "ok": true,
+  "batchId": "ac0414c0-bb0c-44ed-8773-8c61cb188b8e",
+  "jobId": "6d18ec38-3833-4f66-a32a-e9c695da5382",
+  "model": "hunyuan3d-kaggle",
+  "status": "queued",
+  "stagedBase": "C:\\Users\\me\\AppData\\Local\\Temp\\forge-generations\\ac0414c0-bb0c-44ed-8773-8c61cb188b8e"
+ },
+ "gladius": {
+  "ok": true,
+  "batchId": "147f60f2-160d-46d8-b747-a80fd065396b",
+  "jobId": "3cb33a4c-33d4-4ff3-84c5-9302c3825e1b",
+  "model": "hunyuan3d-kaggle",
+  "status": "queued",
+  "stagedBase": "C:\\Users\\me\\AppData\\Local\\Temp\\forge-generations\\147f60f2-160d-46d8-b747-a80fd065396b"
+ }
+}
