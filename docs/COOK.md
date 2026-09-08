@@ -38,3 +38,4 @@
 - Colab env war: pip resolve hangs via MCP (500s). Use background installs + poll. Kernel env (/usr/local) != run_command python — install with sys.executable -m pip. Stale kernels hold old imports — fresh session wins.
 - Stuck claims: dead workers leave claimed jobs. POST /api/batch-factory/requeue flips all non-done back to queued.
 - No-popups wire: MCP SDK hides child windows only in Electron. Patched node_modules SDK esm+cjs stdio.js windowsHide:true (npm reinstall wipes it, re-apply). Services spawn headless flags 8+512+134217728 so children inherit no window.
+- COLAB throttle law: max 3 colab_start tries per HOUR. Dozens of retries in one night flipped Google to 412 on ALL assigns (even CPU). Hammering = self-DDoS. Back off hours, not minutes.
