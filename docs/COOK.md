@@ -1,5 +1,15 @@
 # COOK BOOK — auto 3D cook, zero clicks. Future AI read this first.
 
+## THE workflow (checked, works). One file: work/cook.py
+- `python work/cook.py start` — boot T4 forge-cook2 via colab-3.
+- `python work/cook.py setup` — kernel pip: hy3dgen, trimesh, peft+transformers new. Background, poll import.
+- `FORGE_COOK_TUNNEL=<live public url> python work/cook.py launch` — write worker to VM.
+- `python work/cook.py run` — nohup background. `log` polls /tmp/cook.log. `stop` frees GPU.
+- `python work/cook.py requeue` — stuck claims back to queued. `status` — quota.
+- Worker loop: claim 2 -> image -> shape -> paint (sequential, del + empty_cache between, 12GB OOM else) -> deliver 32MB cap -> complete (gates) -> idle-out.
+- Env law: kernel python IS /usr/bin/python3. Install ONLY via sys.executable -m pip. Fresh session beats dep war.
+- Never 20 scripts again. One driver. VM log is truth, not MCP output slices.
+
 ## Pieces
 - Queue: POST /v1/assets/generations (gateway :20128, token). Jobs sit in memory.
 - Claim: POST /api/batch-factory/claim {workerId, limit 1-8}. Flips queued->claimed.
