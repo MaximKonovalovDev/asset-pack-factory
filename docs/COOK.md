@@ -32,6 +32,8 @@
 - After auth: wire as aggregator stdio remote, cook with zero clicks.
 - deucebucket/colab-runtime-mcp: same family + long-job keepalive. Backup pick.
 - Token in real-cook.ipynb. Private repo only. Rotate token if repo ever goes public.
+- KAGGLE lane (live 2026-09-08): new KGAT_ token goes to ~/.kaggle/access_token (NOT kaggle.json). Kernel at maximkonovalovx/forge-cook-1, private, T4, internet. Source in C:/forge-scratch/kaggle-cook/ (NEVER git: holds gateway token). Push: kaggle kernels push -p DIR --accelerator NvidiaTeslaT4. Watch: kaggle kernels status SLUG. Pull: kaggle kernels output SLUG -p ./out.
+- COLAB lane: colab-3 (anluin, browserless) for interactive; official needs tab. GPU grants dry at night; CPU proves account health.
 - Model ids: shape+paint from 'tencent/Hunyuan3D-2' (lowercase full). 2mini id is wrong path.
 - Colab env war: pip resolve hangs via MCP (500s). Use background installs + poll. Kernel env (/usr/local) != run_command python — install with sys.executable -m pip. Stale kernels hold old imports — fresh session wins.
 - Stuck claims: dead workers leave claimed jobs. POST /api/batch-factory/requeue flips all non-done back to queued.
