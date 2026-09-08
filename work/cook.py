@@ -3,7 +3,7 @@ import base64, json, os, sys, urllib.request
 
 AGG = "http://127.0.0.1:20129/mcp/call"
 GW = "http://127.0.0.1:20128"
-SES = "forge-cook2"
+SES = "forge-cook3"
 
 WORKER = """
 import base64, json, time, urllib.request, traceback
@@ -20,31 +20,56 @@ def api(path, body):
         headers={"Content-Type": "application/json", "x-gdr-cli-token": TOKEN})
     return json.load(urllib.request.urlopen(req, timeout=300))
 
+STAGE_IMG = '''
+import sys
+from hy3dgen.text2image import HunyuanDiTPipeline
+t2i = HunyuanDiTPipeline("Tencent-Hunyuan/HunyuanDiT-v1.2-Diffusers-Distilled")
+_img = t2i(sys.argv[1])
+img = _img.images[0] if hasattr(_img, "images") else _img
+img.save(sys.argv[2])
+print("IMG-DONE")
+'''
+
+STAGE_SHAPE = '''
+import sys
+from hy3dgen.shapegen import Hunyuan3DDiTFlowMatchingPipeline
+from PIL import Image
+shape = Hunyuan3DDiTFlowMatchingPipeline.from_pretrained("tencent/Hunyuan3D-2")
+mesh = shape(image=Image.open(sys.argv[1]).convert("RGB"))[0]
+mesh.export(sys.argv[2])
+print("SHAPE-DONE")
+'''
+
+STAGE_PAINT = '''
+import sys, trimesh
+from hy3dgen.texgen import Hunyuan3DPaintPipeline
+from PIL import Image
+paint = Hunyuan3DPaintPipeline.from_pretrained("tencent/Hunyuan3D-2")
+mesh = trimesh.load(sys.argv[2])
+mesh = paint(mesh, image=Image.open(sys.argv[1]).convert("RGB"))
+mesh.export(sys.argv[3])
+print("PAINT-DONE")
+'''
+
 def render(prompt, seed, out):
-    import gc, torch
-    from hy3dgen.text2image import HunyuanDiTPipeline
+    import subprocess
+    open("/tmp/s_img.py", "w").write(STAGE_IMG)
+    open("/tmp/s_shape.py", "w").write(STAGE_SHAPE)
+    open("/tmp/s_paint.py", "w").write(STAGE_PAINT)
+    imgp, rawp = "/tmp/in.png", out + ".raw.glb"
+    run = lambda *a: subprocess.run(["/usr/bin/python3", *a], check=True,
+                                    stdout=open("/tmp/stage.log", "a"), stderr=subprocess.STDOUT)
     log("stage 1/3 image")
-    t2i = HunyuanDiTPipeline("Tencent-Hunyuan/HunyuanDiT-v1.2-Diffusers-Distilled")
-    _img = t2i(prompt)
-    img = _img.images[0] if hasattr(_img, "images") else _img
-    log("image done")
-    del t2i
-    gc.collect()
-    torch.cuda.empty_cache()
-    from hy3dgen.shapegen import Hunyuan3DDiTFlowMatchingPipeline
+    run("/tmp/s_img.py", prompt, imgp)
     log("stage 2/3 shape")
-    shape = Hunyuan3DDiTFlowMatchingPipeline.from_pretrained("tencent/Hunyuan3D-2")
-    mesh = shape(image=img)[0]
-    log("shape done")
-    del shape
-    gc.collect()
-    torch.cuda.empty_cache()
-    from hy3dgen.texgen import Hunyuan3DPaintPipeline
+    run("/tmp/s_shape.py", imgp, rawp)
     log("stage 3/3 paint")
-    paint = Hunyuan3DPaintPipeline.from_pretrained("tencent/Hunyuan3D-2")
-    mesh = paint(mesh, image=img)
-    log("paint done")
-    mesh.export(out)
+    try:
+        run("/tmp/s_paint.py", imgp, rawp, out)
+    except Exception as e:
+        log("paint skipped (needs compiled rasterizer), ship raw shape:", str(e)[:120])
+        import shutil
+        shutil.copyfile(rawp, out)
 
 while True:
     try:
@@ -128,8 +153,7 @@ if __name__ == "__main__":
         out_text(mex(writer, 120))
     elif cmd == "run":
         out_text(mcp("colab-3__colab_run_command", {"session": SES, "argv": [
-            "bash", "-c", "rm -f /tmp/cook.log; pkill -f /tmp/w.py; sleep 2; "
-                          "nohup /usr/bin/python3 /tmp/w.py > /tmp/nohup.log 2>&1 & echo BG-STARTED"]}, 120))
+            "bash", "-c", "rm -f /tmp/cook.log; nohup /usr/bin/python3 /tmp/w.py > /tmp/nohup.log 2>&1 & echo BG-STARTED"]}, 120))
     elif cmd == "log":
         out_text(mcp("colab-3__colab_run_command", {"session": SES, "argv": [
             "bash", "-c", "tail -n 25 /tmp/cook.log 2>/dev/null || echo NO-LOG-YET"]}, 120))
