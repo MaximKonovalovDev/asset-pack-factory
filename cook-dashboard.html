@@ -1,0 +1,36 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Cook Dashboard</title>
+<style>body{font-family:system-ui;background:#111;color:#eee;padding:20px}button{padding:10px 16px;margin:4px;font-size:15px;cursor:pointer}.card{border:1px solid #444;border-radius:8px;padding:12px;margin:10px 0}.ok{color:#7f7}.bad{color:#f77}.cmd{background:#222;padding:8px;border-radius:6px;font-family:monospace;user-select:all}</style>
+</head><body>
+<h1>Cook Dashboard</h1>
+<div>Gateway token: <input id="tok" type="password" size="30" placeholder="paste FORGE_GATEWAY_TOKEN once"> <button onclick="saveTok()">Save (local only)</button></div>
+<div class="card"><h3>Lanes</h3><div id="lanes">…</div>
+<button onclick="gpuTest()">TEST T4 GPU NOW</button> <span id="gputest"></span></div>
+<div class="card"><h3>Quota</h3><div id="quota">…</div></div>
+<div class="card"><h3>Queue — check job</h3><input id="job" size="40" placeholder="jobId"> <button onclick="jobStatus()">Check</button> <span id="js"></span></div>
+<div class="card"><h3>Accounts — add / switch (paste in terminal)</h3>
+<div>Colab other account (60 sec, fresh GPUs):</div><div class="cmd">uv run --directory C:/forge/sidecars/colab-auto colab-mcp auth</div>
+<div>Kaggle key file lives at: <span class="cmd">C:\Users\me\.kaggle\</span> (access_token = new type, kaggle.json = old type)</div>
+<div><a href="https://colab.research.google.com" target="_blank">Colab</a> · <a href="https://www.kaggle.com/settings/api" target="_blank">Kaggle API keys</a> · <a href="https://www.kaggle.com/code/maximkonovalovx/forge-cook-1" target="_blank">forge-cook-1 kernel</a></div></div>
+<div class="card"><h3>Board actions</h3>
+<button onclick="api('/api/batch-factory/requeue',{ },'POST',r=>alert('requeued '+r.requeued))">Requeue stuck</button></div>
+<script>
+const G='http://127.0.0.1:20128', A='http://127.0.0.1:20129';
+const tok=()=>localStorage.getItem('gtok')||'';
+function saveTok(){localStorage.setItem('gtok',document.getElementById('tok').value);alert('saved local');location.reload()}
+async function api(path,body,method,cb){const r=await fetch(G+path,{method:method||'GET',headers:{'Content-Type':'application/json','x-gdr-cli-token':tok()},body:body?JSON.stringify(body):undefined});const j=await r.json();cb&&cb(j);return j}
+async function refresh(){
+ try{const h=await (await fetch(G+'/health')).json();
+ lanes.innerHTML='gateway <b class="ok">UP</b> | lanes: '+h.laneMatrix.lanes.map(l=>l.lane+'='+l.status).join(', ')}catch(e){lanes.innerHTML='<b class="bad">gateway DOWN</b>'}
+ try{const a=await (await fetch(A+'/health')).json();
+ lanes.innerHTML+='<br>aggregator <b class="ok">UP</b> | '+a.remotes.map(r=>r.id+'='+(r.enabled?'on':'OFF')).join(', ')}catch(e){lanes.innerHTML+='<br><b class="bad">aggregator DOWN</b>'}
+ try{const q=await api('/api/quota');quota.innerHTML=q.accounts.map(a=>a.id+': '+a.quotaLeftMin+' min').join(' | ')}catch(e){quota.innerHTML='<b class="bad">quota blocked (token?)</b>'}
+}
+async function gpuTest(){gputest.textContent='asking Google…';
+ const r=await fetch(A+'/mcp/call',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tool:'colab-3__colab_start',arguments:{session:'dash-test',gpu:'T4'}})});
+ const j=await r.json();const t=JSON.stringify(j).slice(0,120);
+ gputest.textContent=t.includes('url')?'GPU GRANTED — lane open':'GPU refused (Google dry): '+t.slice(-100);
+ if(t.includes('url')){await fetch(A+'/mcp/call',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tool:'colab-3__colab_stop',arguments:{session:'dash-test'}})});gputest.textContent+=' (released)'}}
+async function jobStatus(){const id=job.value.trim();if(!id)return;try{const j=await api('/api/batch-factory?jobId='+id);js.textContent=j.status||JSON.stringify(j).slice(0,100)}catch(e){js.textContent='need token saved'}}
+refresh();setInterval(refresh,30000);
+</script></body></html>
