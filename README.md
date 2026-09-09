@@ -1,21 +1,13 @@
-# asset-pack-factory — slim 3D + SFX + VFX pack factory
+# Asset Pack Factory — brief to shippable 3D + SFX + VFX packs
 
-You direct, pipe produces. Sell on Fab / Unity / SL / Roblox / itch / Patreon.
+Pipeline that turns a `brief.yaml` into verified, export-ready packs for Unity, Unreal, Godot, Flax, Second Life, Roblox, Minecraft, and FiveM — plus generated SFX/VFX and store-ready previews.
 
 ```
-brief.yaml -> gen -> fix -> pbr -> lod -> verify -> export -> ship
+brief.yaml -> generate -> fix -> PBR -> LOD -> verify -> export -> ship
 ```
 
-## Layout (slim, 24 files max)
-```
-apf/ (gen, fix, pbr, lod, verify, pack, cli, state)
-exports/ (unity, unreal, godot, flax, secondlife, roblox, minecraft, fivem)
-ship/ (one lane file per site)
-sfx/ vfx/ packs/ previews/ research/ records/ state/
-.opencode/agent/ (10 agents) + opencode.jsonc
-```
+## Quickstart
 
-## Quick start
 ```bash
 pip install -r requirements.txt
 python -m apf packs3d packs/pack-a-sl-fall-5/brief.yaml
@@ -23,9 +15,35 @@ python -m apf verify3d work/pack-a-sl-fall-5
 python -m apf ship work/pack-a-sl-fall-5 --site sl-market
 ```
 
-## Took from
-- asset-forge: orchestrator brief/pipeline/state, export, lod, manifest, mats, retopo, uv, previews, snap, style.
-- FAW: pack CLI, free runners (polyhaven, quaternius, kenney, ambientcg, mixamo, colab, comfyui), provenance, router.
-- forge: gateway :20128 3D lane, 7 gates, provenance 11 fields, opencode agents.
-- steam-mcp-suite: researcher Steam + itch jam brain.
-See STEAL.md for credit.
+## Layout
+
+```
+apf/        # generator, fixer, PBR, LOD, verifier, packer, CLI, state
+exports/    # per-engine export profiles
+ship/       # one lane per storefront
+sfx/ vfx/ packs/ previews/ research/ records/
+.opencode/  # 10 lane agents + project config
+```
+
+## What it proves
+
+- Repeatable asset ops: every run keeps provenance, manifests, and verification receipts.
+- Multi-engine exports from one source brief.
+- Agent-assisted workflow (10 lane agents) with gates before ship.
+
+## Built from
+
+- `asset-forge` (brief/pipeline/state, LOD, manifest, previews)
+- `flax-asset-worker` (pack CLI, free runners, provenance)
+- Private forge gateway (3D lane, quality gates)
+- `steam-mcp-suite` (store/jam research input)
+
+Full attribution in `CREDITS.md`. All bundled code is MIT-compatible or original.
+
+## Roadmap
+
+More export profiles, preview renders per pack, automated store listing drafts.
+
+## Author
+
+Maxim Konovalov — Haifa · game assets + AI pipelines. Live pack demos on call.
