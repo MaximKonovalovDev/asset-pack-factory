@@ -65,9 +65,7 @@ docs/       # brief, lanes, manifest, cook, Flax notes
 
 ## License
 
-No LICENSE file ships in this checkout, so no license is claimed here.
-`CREDITS.md` says all bundled code is MIT-compatible or original; see it
-for attribution. License was checked, not changed.
+MIT — see `LICENSE` (Maxim Konovalov). Attribution in `CREDITS.md`.
 
 ## Author
 
