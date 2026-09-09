@@ -65,8 +65,4 @@ docs/       # brief, lanes, manifest, cook, Flax notes
 
 ## License
 
-MIT — see `LICENSE` (Maxim Konovalov). Attribution in `CREDITS.md`.
-
-## Author
-
-Maxim Konovalov — Haifa. Game assets + AI pipelines.
+MIT — see `LICENSE`. Attribution in `CREDITS.md`.
